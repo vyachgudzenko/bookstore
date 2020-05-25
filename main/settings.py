@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     #мои приложения
     'users.apps.UsersConfig',
     'pages.apps.PagesConfig',
+    'books.apps.BooksConfig'
     ]
 
 MIDDLEWARE = [
