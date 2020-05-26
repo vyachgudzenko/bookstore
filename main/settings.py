@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+from stripe_key import *
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -47,7 +48,8 @@ INSTALLED_APPS = [
     #мои приложения
     'users.apps.UsersConfig',
     'pages.apps.PagesConfig',
-    'books.apps.BooksConfig'
+    'books.apps.BooksConfig',
+    'orders.apps.OrdersConfig',
     ]
 
 MIDDLEWARE = [
@@ -135,7 +137,7 @@ STATICFILES_FINDERS = [
     "django.contrib.staticfiles.finders.FileSystemFinder",
     "django.contrib.staticfiles.finders.AppDirectoriesFinder",
 ]
-MEDIA_URL = '/media/' 
+MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 LOGIN_REDIRECT_URL = 'pages:home'
@@ -155,3 +157,6 @@ AUTHENTICATION_BACKENDS = (
 'allauth.account.auth_backends.AuthenticationBackend', # new
 )
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+#Stripe settings
+STRIPE_TEST_PUBLISHABLE_KEY=public_key
+STRIPE_TEST_SECRET_KEY= secret_key
